@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="plateform_item_height">60dp</dimen>
+
+    <dimen name="palteform_item_width">260dp</dimen>
+
+    <!--frg_scan-->
+    <dimen name="id_margin_left">20dp</dimen>
+    <dimen name="id_margin_top">10dp</dimen>
+</resources>

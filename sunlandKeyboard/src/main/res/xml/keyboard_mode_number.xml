@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:keyHeight="10%p"
+    android:keyWidth="33%p"
+    android:verticalGap="0px">
+
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH"
+            android:keyLabel="英文"
+            android:keyWidth="25%p" />
+        <Key
+            android:codes="@integer/KEYBORD_SYMBOLS"
+            android:keyLabel="符号"
+            android:keyWidth="25%p" />
+        <Key
+            android:codes="@integer/KEYBORD_CHINESE"
+            android:keyLabel="中文"
+            android:keyWidth="25%p" />
+        <Key
+            android:codes="@integer/KEYBORD_DEL"
+            android:isRepeatable="true"
+            android:keyIcon="@drawable/del"
+            android:keyWidth="25%p" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_1"
+            android:keyLabel="1"
+            android:popupCharacters="1" />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_2"
+            android:keyLabel="2" />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_3"
+            android:keyLabel="3" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_4"
+            android:keyLabel="4" />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_5"
+            android:keyLabel="5" />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_6"
+            android:keyLabel="6" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_7"
+            android:keyLabel="7" />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_8"
+            android:keyLabel="8" />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_9"
+            android:keyLabel="9" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="46"
+            android:keyLabel="." />
+        <Key
+            android:codes="@integer/KEYBORD_NUMBER_0"
+            android:keyLabel="0" />
+        <Key
+            android:codes="@integer/KEYBORD_DONE"
+            android:keyLabel="完成" />
+    </Row>
+</Keyboard>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:keyHeight="9%p"
+    android:keyWidth="20%p"
+    android:verticalGap="0px">
+
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_a"
+            android:keyLabel="a"
+            />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_b"
+            android:keyLabel="b" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_c"
+            android:keyLabel="c" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_d"
+            android:keyLabel="d" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_e"
+            android:keyLabel="e" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_f"
+            android:keyLabel="f" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_g"
+            android:keyLabel="g" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_h"
+            android:keyLabel="h" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_i"
+            android:keyLabel="i" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_j"
+            android:keyLabel="j" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_k"
+            android:keyLabel="k" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_l"
+            android:keyLabel="l" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_m"
+            android:keyLabel="m" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_n"
+            android:keyLabel="n" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_o"
+            android:keyLabel="o" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_p"
+            android:keyLabel="p" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_q"
+            android:keyLabel="q" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_r"
+            android:keyLabel="r" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_s"
+            android:keyLabel="s" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_t"
+            android:keyLabel="t" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_u"
+            android:keyLabel="u" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_v"
+            android:keyLabel="v" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_w"
+            android:keyLabel="w" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_x"
+            android:keyLabel="x" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_y"
+            android:keyLabel="y" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH_z"
+            android:keyLabel="z" />
+        <Key
+            android:codes="@integer/KEYBORD_SHIFT"
+            android:isModifier="true"
+            android:isSticky="false"
+            android:keyLabel="大写" />
+        <Key
+            android:codes="@integer/KEYBORD_NUM"
+            android:keyLabel="数字" />
+        <Key
+            android:codes="@integer/KEYBORD_DEL"
+            android:isRepeatable="true"
+            android:keyIcon="@drawable/del" />
+        <Key
+            android:codes="@integer/KEYBORD_DONE"
+            android:keyLabel="完成" />
+    </Row>
+
+</Keyboard>

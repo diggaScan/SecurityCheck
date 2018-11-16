@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:keyHeight="10%p"
+    android:keyWidth="14.28%p"
+    android:verticalGap="0px">
+
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_BJ"
+            android:keyLabel="京" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_TJ"
+            android:keyLabel="津" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_HB"
+            android:keyLabel="冀" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_ZJ"
+            android:keyLabel="浙" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_NX"
+            android:keyLabel="宁" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_CJ"
+            android:keyLabel="川" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_XJ"
+            android:keyLabel="新" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_SX"
+            android:keyLabel="晋" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_GX"
+            android:keyLabel="桂" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_SH"
+            android:keyLabel="沪" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_YN"
+            android:keyLabel="云" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_JL"
+            android:keyLabel="吉" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_CQ"
+            android:keyLabel="渝" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_HN"
+            android:keyLabel="湘" />
+    </Row>
+    <Row>
+
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_HAIN"
+            android:keyLabel="琼" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_GS"
+            android:keyLabel="甘" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_AH"
+            android:keyLabel="皖" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_GD"
+            android:keyLabel="粤" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_JS"
+            android:keyLabel="苏" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_NMG"
+            android:keyLabel="蒙" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_XZ"
+            android:keyLabel="藏" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_HEN"
+            android:keyLabel="豫" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_GZ"
+            android:keyLabel="贵" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_JX"
+            android:keyLabel="赣" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_LN"
+            android:keyLabel="辽" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_HUB"
+            android:keyLabel="鄂" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_FJ"
+            android:keyLabel="闽" />
+        <!--<Key-->
+            <!--android:codes="@integer/KEYBORD_VEHICLE_SHANX"-->
+            <!--android:keyLabel="陕" />-->
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_QH"
+            android:keyLabel="青" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_SD"
+            android:keyLabel="鲁" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_HLJ"
+            android:keyLabel="黑" />
+        <Key
+            android:codes="@integer/KEYBORD_VEHICLE_SHANX"
+            android:keyLabel="陕" />
+        <Key
+            android:codes="@integer/KEYBORD_ENGLISH"
+            android:keyLabel="英文" />
+        <Key
+            android:codes="@integer/KEYBORD_CHINESE"
+            android:keyLabel="中文" />
+        <!--<Key-->
+            <!--android:codes="@integer/KEYBORD_CHARACTER_NONE"-->
+            <!--android:keyLabel="无" />-->
+        <Key
+            android:codes="@integer/KEYBORD_DONE"
+            android:keyLabel="完成" />
+    </Row>
+</Keyboard>

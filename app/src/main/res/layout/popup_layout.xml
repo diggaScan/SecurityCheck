@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@null"
+    android:weightSum="1"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:background="@drawable/popup_round_background"
+        android:layout_height="@dimen/plateform_item_height"
+        android:textColor="@color/white"
+        android:id="@+id/popup_title"
+        android:gravity="center"/>
+    <android.support.v7.widget.RecyclerView
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/popup_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/popup_bot_back"/>
+
+</LinearLayout>

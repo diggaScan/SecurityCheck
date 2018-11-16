@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.sunland.securitycheck.SpinButton
+                android:id="@+id/nation"
+                android:layout_width="@dimen/palteform_item_width"
+                android:layout_height="@dimen/plateform_item_height"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/check_input_background"
+                android:gravity="center"
+                android:paddingLeft="10dp" />
+
+            <com.sunland.securitycheck.SpinButton
+                android:id="@+id/identifier"
+                android:layout_width="@dimen/palteform_item_width"
+                android:layout_height="@dimen/plateform_item_height"
+                android:layout_below="@id/nation"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/check_input_background"
+                android:gravity="center"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/id"
+                android:layout_width="@dimen/palteform_item_width"
+                android:layout_height="@dimen/plateform_item_height"
+                android:layout_below="@id/identifier"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/check_input_background"
+                android:gravity="center"
+                android:hint="证件号码"
+                android:text="341621199801040091" />
+
+            <Button
+                android:id="@+id/id_input_enter"
+                android:layout_width="@dimen/palteform_item_width"
+                android:layout_height="@dimen/plateform_item_height"
+                android:layout_below="@id/id"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/button_click_effect"
+                android:text="核验"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+</FrameLayout>

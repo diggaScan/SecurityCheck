@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BaseUI</string>
+    <string name="title_activity_base_tab_host">BaseTabHost</string>
+</resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:elevation="10dp"
+            android:id="@+id/id_model"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/identity_bkg" />
+
+        <TableLayout
+            android:elevation="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:stretchColumns="*">
+
+            <TableRow android:layout_marginTop="@dimen/id_margin_top">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/id_loading_color"
+                    android:layout_marginRight="@dimen/id_margin_left"
+                    android:textColor="@color/black"
+                    android:textSize="8.5pt" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="@dimen/id_margin_top">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="性别"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/id_loading_color"
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="民族"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_nation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/id_loading_color"
+
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="@dimen/id_margin_top">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="出生"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/id_loading_color"
+
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/id_margin_left"
+                    android:text="年"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/id_loading_color"
+
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/id_margin_left"
+                    android:text="月"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/id_loading_color"
+
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:text="日"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="@dimen/id_margin_top">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="住址"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="5"
+                    android:background="@color/id_loading_color"
+
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="@dimen/id_margin_top">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_span="2"
+                    android:text="公民身份号码"
+                    android:textColor="@color/id_attr_color"
+                    android:textSize="7.5pt" />
+
+                <TextView
+                    android:id="@+id/id_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="7"
+                    android:background="@color/id_loading_color"
+                    android:textColor="@color/black"
+                    android:textSize="7.5pt"
+                    android:textStyle="bold"
+                    android:typeface="monospace" />
+            </TableRow>
+
+        </TableLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/nfc"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_nfc_scan"
+        android:text="nfc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nfc"
+        android:layout_centerHorizontal="true"
+        android:text="点击进行NFC扫描" />
+
+    <Button
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:id="@+id/id_scan_enter"
+        style="?android:borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:text="核查"
+        android:visibility="gone" />
+
+</RelativeLayout>

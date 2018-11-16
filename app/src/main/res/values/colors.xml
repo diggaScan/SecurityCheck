@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c66a8</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="item_bkg">#ffffff</color>
+    <color name="item_pressed_color">#dedede</color>
+
+    <color name="button_pressed">#006666</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gray_back_screen">#efeeee</color>
+    <color name="divider_color">#f4f3f3</color>
+
+    <color name="recycler_selected_item">#ded754</color>
+
+    <!--frg_scan-->
+    <color name="id_attr_color">#438edb</color>
+    <color name="id_loading_color">#d6d4d4d4</color>
+
+    <!--custom_keyboard_color-->
+    <color name="key_pressed_color">#dcdcdc</color>
+    <color name="key_unpressed_color">#eef2f5</color>
+    <color name="keyboard_bkg">#b3b3b3</color>
+</resources>
