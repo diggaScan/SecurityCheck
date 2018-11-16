@@ -10,20 +10,20 @@
         android:layout_centerInParent="true">
 
         <ImageView
-            android:elevation="10dp"
             android:id="@+id/id_model"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
+            android:elevation="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/identity_bkg" />
 
         <TableLayout
-            android:elevation="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
+            android:elevation="15dp"
             android:gravity="center"
             android:stretchColumns="*">
 
@@ -40,8 +40,8 @@
                     android:id="@+id/id_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/id_loading_color"
                     android:layout_marginRight="@dimen/id_margin_left"
+                    android:background="@color/id_loading_color"
                     android:textColor="@color/black"
                     android:textSize="8.5pt" />
             </TableRow>
@@ -192,26 +192,56 @@
         </TableLayout>
     </FrameLayout>
 
-    <ImageView
+    <View
+        android:id="@+id/h_divider"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
         android:id="@+id/nfc"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_nfc_scan"
-        android:text="nfc" />
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/h_divider"
+        android:background="@drawable/ic_nfc_scan"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/face_scan"
+
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/h_divider"
+        android:background="@drawable/ic_face_sacn"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nfc"
+        android:layout_alignLeft="@id/nfc"
         android:layout_centerHorizontal="true"
-        android:text="点击进行NFC扫描" />
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/h_divider"
+        android:gravity="center"
+        android:text="NFC扫描" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nfc"
+        android:layout_alignRight="@id/face_scan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/h_divider"
+        android:gravity="center"
+        android:text="人脸识别" />
 
     <Button
-        android:textSize="20sp"
-        android:textColor="@color/white"
         android:id="@+id/id_scan_enter"
         style="?android:borderlessButtonStyle"
         android:layout_width="match_parent"
@@ -220,6 +250,8 @@
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
         android:text="核查"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:visibility="gone" />
 
 </RelativeLayout>
