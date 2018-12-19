@@ -3,18 +3,30 @@
     package="com.sunland.securitycheck">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="flavour"
+            android:value="${FLAVOUR_VALUE}" />
+        <meta-data
+            android:name="category"
+            android:value="${CATEGORY_VALUE}" />
+        <meta-data
+            android:name="plateform"
+            android:value="${PLATEFORM_VALUE}" />
+
         <activity android:name=".activities.Ac_main">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="${PLATEFORM_VALUE}.intent.action.MAIN" />
+                <category android:name="${PLATEFORM_VALUE}.intent.category.${CATEGORY_VALUE}" />
             </intent-filter>
         </activity>
         <activity

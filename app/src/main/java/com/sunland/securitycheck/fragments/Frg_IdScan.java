@@ -63,7 +63,7 @@ public class Frg_IdScan extends Frg_base {
                 break;
             case R.id.face_scan:
                 // TODO: 2018/11/16/016 hop to face_scan
-
+                Toast.makeText(context,"未安装人脸识别组件",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.id_scan_enter:
 //                ((Ac_check) context).hop2Activity(Ac_check_result.class);

@@ -44,8 +44,7 @@
                 android:layout_marginTop="18dp"
                 android:background="@drawable/check_input_background"
                 android:gravity="center"
-                android:hint="证件号码"
-                android:text="341621199801040091" />
+                android:hint="证件号码" />
 
             <Button
                 android:id="@+id/id_input_enter"

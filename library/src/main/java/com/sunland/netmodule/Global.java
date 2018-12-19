@@ -11,12 +11,12 @@ public class Global {
     public final static String appName = "hzydjw";
     public final static String sdPath = Environment.getExternalStorageDirectory().getPath();
 
-    public final static String ip = "sunlandgroup.51vip.biz";
-    public static String port = "9080";
+    //    public final static String ip = "sunlandgroup.51vip.biz";
+//    public static String port = "9080";
     public final static String postfix = "/hzydjw/services/IHzydjwService";
 
-//    public final static String ip = "20.65.2.12";
-//    public static String port = "3565";
+    public final static String ip = "20.65.2.12";
+    public static String port = "3565";
     //本机信息
     public static String imei = "";
     public static String imsi1 = " ";

@@ -1,6 +1,8 @@
 package com.sunland.securitycheck.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,7 +39,7 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
 
     @Override
     public void onBindViewHolder(@NonNull Rv_name_list_adapter.MyViewHolder myViewHolder, int i) {
-        TSummitPersion info = dataSet.get(i);
+        final TSummitPersion info = dataSet.get(i);
         myViewHolder.tv_name.setText(info.getPaperName());
         myViewHolder.tv_num.setText(info.getSfzh());
         myViewHolder.tv_yxq.setText(info.getYxq());
@@ -46,7 +48,12 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
         myViewHolder.rl_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bundle bundle = new Bundle();
+                bundle.putString("id", info.getSfzh());
+                Intent intent = new Intent();
+                intent.setAction("com.sunland.intent.action.QUERY_ID");
+                intent.putExtra("bundle", bundle);
+                context.startActivity(intent);
             }
         });
     }

@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.sunland.securitycheck.MyApplication;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.WindowInfoUtils;
 
@@ -30,12 +31,13 @@ public class Ac_base extends AppCompatActivity {
     public ImageView iv_nav;
     public FrameLayout container;
     public KeyboardView keyboard;
-
+    public MyApplication mApplication;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_base);
+        mApplication = (MyApplication) getApplication();
         toolbar = findViewById(R.id.toolbar);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -47,7 +49,6 @@ public class Ac_base extends AppCompatActivity {
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     WindowInfoUtils.getStatusBarHeight(this) + actionBarHeight);
             toolbar.setLayoutParams(lp);
-
         }
 
         tb_title = findViewById(R.id.toolbar_title);

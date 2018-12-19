@@ -9,6 +9,8 @@ public class BaseRequestBean {
     public String imei;
     public String imsi;
     public String pdaTime;
+    private String gpsX;
+    private String gpsY;
 
     public String getYhdm() {
         return yhdm;
@@ -40,5 +42,21 @@ public class BaseRequestBean {
 
     public void setPdaTime(String pdaTime) {
         this.pdaTime = pdaTime;
+    }
+
+    public String getGpsX() {
+        return gpsX;
+    }
+
+    public void setGpsX(String gpsX) {
+        this.gpsX = gpsX;
+    }
+
+    public String getGpsY() {
+        return gpsY;
+    }
+
+    public void setGpsY(String gpsY) {
+        this.gpsY = gpsY;
     }
 }
