@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.bean.TSummitPersion;
+import com.sunland.securitycheck.utils.UtilsString;
 
 import java.util.List;
 
@@ -41,19 +43,28 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
     public void onBindViewHolder(@NonNull Rv_name_list_adapter.MyViewHolder myViewHolder, int i) {
         final TSummitPersion info = dataSet.get(i);
         myViewHolder.tv_name.setText(info.getPaperName());
-        myViewHolder.tv_num.setText(info.getSfzh());
+        final String sfzh = info.getSfzh();
+        myViewHolder.tv_num.setText(sfzh);
         myViewHolder.tv_yxq.setText(info.getYxq());
         myViewHolder.tv_gj.setText(info.getNationStr());
 
-        myViewHolder.rl_container.setOnClickListener(new View.OnClickListener() {
+        myViewHolder.tv_hc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("id", info.getSfzh());
+                bundle.putString("id", sfzh);
                 Intent intent = new Intent();
                 intent.setAction("com.sunland.intent.action.QUERY_ID");
                 intent.putExtra("bundle", bundle);
-                context.startActivity(intent);
+                if (UtilsString.checkId(sfzh).equals("")) {
+                    Toast.makeText(context, "此人身份证号为无效格式", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (intent.resolveActivity(context.getPackageManager()) != null) {
+                    context.startActivity(intent);
+                } else {
+                    Toast.makeText(context, "未安装核查应用", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -69,6 +80,7 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
         TextView tv_num;
         TextView tv_yxq;
         TextView tv_gj;
+        TextView tv_hc;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +89,7 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
             tv_yxq = itemView.findViewById(R.id.yxq);
             tv_gj = itemView.findViewById(R.id.gj);
             rl_container = itemView.findViewById(R.id.name_container);
+            tv_hc = itemView.findViewById(R.id.hc);
         }
     }
 

@@ -6,18 +6,17 @@ import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
-import com.sunland.securitycheck.BannerIndicator;
 import com.sunland.securitycheck.DataModel;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.adapter.OnItemClickedListener;
 import com.sunland.securitycheck.adapter.VpAdapter_main;
-import com.sunland.securitycheck.bean.CheckRequestBean;
+import com.sunland.securitycheck.customView.BannerIndicator;
 
 import java.util.Arrays;
 
 import butterknife.BindView;
 
-public class Ac_main extends CheckSelfPermissionActivity {
+public class Ac_main extends Ac_base {
 
     @BindView(R.id.page_indicator)
     public BannerIndicator bi_indicator;
@@ -51,7 +50,7 @@ public class Ac_main extends CheckSelfPermissionActivity {
             public void onClick(int position) {
                 Bundle bundle = new Bundle();
                 bundle.putString("title", DataModel.conference_locs[position]);
-                bundle.putString("area",DataModel.AREA_CODE[position]);
+                bundle.putString("area", DataModel.AREA_CODE[position]);
                 hop2Activity(Ac_check.class, bundle);
             }
         });

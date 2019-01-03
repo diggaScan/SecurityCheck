@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.sunland.securitycheck.SpinButton
+            <com.sunland.securitycheck.customView.SpinButton
                 android:id="@+id/nation"
                 android:layout_width="@dimen/palteform_item_width"
                 android:layout_height="@dimen/plateform_item_height"
@@ -24,7 +24,7 @@
                 android:gravity="center"
                 android:paddingLeft="10dp" />
 
-            <com.sunland.securitycheck.SpinButton
+            <com.sunland.securitycheck.customView.SpinButton
                 android:id="@+id/identifier"
                 android:layout_width="@dimen/palteform_item_width"
                 android:layout_height="@dimen/plateform_item_height"
@@ -58,6 +58,20 @@
                 android:textColor="@color/white" />
         </RelativeLayout>
     </ScrollView>
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/loading_icon"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorPrimary" />
+    </FrameLayout>
 
 </FrameLayout>

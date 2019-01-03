@@ -1,22 +1,13 @@
-package com.sunland.securitycheck.bean.i_login_bean;
+package com.sunland.securitycheck.bean.i_mm_login_bean;
 
 
 import com.sunland.securitycheck.bean.BaseRequestBean;
 
-public class LoginRequestBean extends BaseRequestBean {
-    private String password;   //	密码
+public class LoginMMRequestBean extends BaseRequestBean {
     private String dlmk;    //	登录模块(区分不同的APP登录)
     private String sjpp;    //	手机品牌
     private String sjxx;    //	手机型号
     private String zzxt;    //	手机操作系统
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getDlmk() {
         return dlmk;

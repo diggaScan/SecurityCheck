@@ -7,17 +7,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.Toast;
 
 import com.sunland.netmodule.def.bean.result.ResultBase;
 import com.sunland.netmodule.network.OnRequestCallback;
 import com.sunland.netmodule.network.RequestManager;
-import com.sunland.securitycheck.BannerIndicator;
 import com.sunland.securitycheck.DataModel;
 import com.sunland.securitycheck.NfcReceiver;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.adapter.VpAdapter_check;
 import com.sunland.securitycheck.bean.CheckResponseBean;
+import com.sunland.securitycheck.customView.BannerIndicator;
 import com.sunland.securitycheck.fragments.Frg_IdInput;
 import com.sunland.securitycheck.fragments.Frg_IdScan;
 import com.sunland.securitycheck.fragments.Frg_nameInput;
@@ -41,6 +42,9 @@ public class Ac_check extends Ac_base implements NfcReceiver.OnGetNfcDataListene
     private Fragment frg_idScan;
     private Fragment frg_idInput;
     private Fragment frg_nameInput;
+    public String sfzh;
+
+    public int which;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,7 +69,6 @@ public class Ac_check extends Ac_base implements NfcReceiver.OnGetNfcDataListene
     @Override
     protected void onStop() {
         super.onStop();
-
     }
 
     @Override
@@ -146,12 +149,23 @@ public class Ac_check extends Ac_base implements NfcReceiver.OnGetNfcDataListene
     public <T> void onRequestFinish(String reqId, String reqName, T bean) {
         switch (reqName) {
             case "querySummitPerson":
+                if (which == 0) {
+                    ((Frg_IdScan) frg_idScan).loading_layout.setVisibility(View.GONE);
+                    sfzh = ((Frg_IdScan) frg_idScan).num;
+
+                } else {
+                    ((Frg_IdInput) frg_idInput).loading_layout.setVisibility(View.GONE);
+                    sfzh = ((Frg_IdInput) frg_idInput).sfzh;
+                }
+
+
                 CheckResponseBean responseBean = (CheckResponseBean) bean;
                 if (responseBean != null) {
                     if (responseBean.getCode().equals("0")) {
                         Bundle bundle = new Bundle();
                         bundle.putString("result", responseBean.getResult());
                         bundle.putString("resultCode", responseBean.getResultCode());
+                        bundle.putString("sfzh", sfzh);
                         hop2Activity(Ac_check_result.class, bundle);
                     } else {
                         Toast.makeText(this, "服务异常，无法获取数据", Toast.LENGTH_SHORT).show();

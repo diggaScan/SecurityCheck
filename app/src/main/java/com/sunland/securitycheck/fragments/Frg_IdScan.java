@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sunland.netmodule.Global;
+import com.sunland.netmodule.network.RequestManager;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.activities.Ac_check;
+import com.sunland.securitycheck.bean.CheckRequestBean;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -36,7 +40,12 @@ public class Frg_IdScan extends Frg_base {
     public TextView tv_address;
     @BindView(R.id.id_num)
     public TextView tv_num;
-
+    @BindView(R.id.loading_layout)
+    public FrameLayout loading_layout;
+    public String num;
+    private String name;
+    private String gender;
+    private RequestManager mRequestManager;
 
     @Override
     public int setFrgLayout() {
@@ -45,7 +54,7 @@ public class Frg_IdScan extends Frg_base {
 
     @Override
     public void init() {
-
+        mRequestManager = ((Ac_check) context).getRequestManager();
     }
 
     @OnClick({R.id.nfc, R.id.id_scan_enter, R.id.face_scan})
@@ -63,23 +72,40 @@ public class Frg_IdScan extends Frg_base {
                 break;
             case R.id.face_scan:
                 // TODO: 2018/11/16/016 hop to face_scan
-                Toast.makeText(context,"未安装人脸识别组件",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "未安装人脸识别组件", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.id_scan_enter:
 //                ((Ac_check) context).hop2Activity(Ac_check_result.class);
-                Frg_check_result_dialog dialog = new Frg_check_result_dialog();
-                dialog.show(((Ac_check) context).getSupportFragmentManager(), "dialog");
+                mRequestManager.addRequest(Global.ip, Global.port, Global.postfix, "querySummitPerson", assembleRequestObj(), 15000);
+                mRequestManager.postRequestWithoutDialog();
+                loading_layout.setVisibility(View.VISIBLE);
+                ((Ac_check) context).which = 0;
+//                Frg_check_result_dialog dialog = new Frg_check_result_dialog();
+//                dialog.setInfo(num, Integer.valueOf(gender), name, ((Ac_check) context).area_code);
+//                dialog.show(((Ac_check) context).getSupportFragmentManager(), "dialog");
                 break;
         }
     }
 
+    private CheckRequestBean assembleRequestObj() {
+        CheckRequestBean bean = new CheckRequestBean();
+        assembleBasicRequest(bean);
+        bean.setNation("01");
+        bean.setZjlx("01");
+        bean.setZjhm(num);
+        bean.setArea(((Ac_check) context).area_code);
+        bean.setXm(name);
+        return bean;
+
+    }
+
     public void updateViews(Intent intent) {
         btn_enter.setVisibility(View.VISIBLE);
-        String name = intent.getStringExtra("name");
-        String gender = intent.getStringExtra("sex");
+        name = intent.getStringExtra("name");
+        gender = intent.getStringExtra("sex");
         String nation = intent.getStringExtra("nation");
         String address = intent.getStringExtra("address");
-        String num = intent.getStringExtra("identity");
+        num = intent.getStringExtra("identity");
         tv_name.setBackgroundColor(Color.argb(0, 0, 0, 0));
         tv_gender.setBackgroundColor(Color.argb(0, 0, 0, 0));
         tv_nation.setBackgroundColor(Color.argb(0, 0, 0, 0));

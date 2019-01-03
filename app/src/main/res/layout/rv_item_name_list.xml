@@ -55,6 +55,7 @@
         android:layout_toRightOf="@id/yxq_description" />
 
     <Button
+        android:id="@+id/hc"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:layout_width="60dp"
         android:layout_height="32dp"

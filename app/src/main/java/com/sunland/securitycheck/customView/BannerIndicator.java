@@ -1,4 +1,4 @@
-package com.sunland.securitycheck;
+package com.sunland.securitycheck.customView;
 
 import android.content.Context;
 import android.graphics.Canvas;

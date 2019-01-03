@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.sunland.netmodule.Global;
@@ -17,9 +19,7 @@ import com.sunland.securitycheck.bean.NameListRequestBean;
 import com.sunland.securitycheck.bean.NameListResponseBean;
 import com.sunland.securitycheck.bean.TSummitPersion;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -28,7 +28,8 @@ public class Ac_name_list extends Ac_base implements OnRequestCallback {
 
     @BindView(R.id.rv_nameList)
     public RecyclerView rv_name_list;
-
+    @BindView(R.id.loading_layout)
+    public FrameLayout loading_layout;
     private RequestManager mRequestManager;
     private List<TSummitPersion> dataset;
     private Rv_name_list_adapter adapter;
@@ -60,20 +61,14 @@ public class Ac_name_list extends Ac_base implements OnRequestCallback {
     private void queryNameList() {
         String reqName = "querySummitPersonList";
         mRequestManager.addRequest(Global.ip, Global.port, Global.postfix, reqName, assembleRequestObj(), 15000);
-        mRequestManager.postRequest();
+        mRequestManager.postRequestWithoutDialog();
+        loading_layout.setVisibility(View.VISIBLE);
     }
 
 
     private NameListRequestBean assembleRequestObj() {
         NameListRequestBean requestBean = new NameListRequestBean();
-        requestBean.setYhdm("test");
-        requestBean.setImei(Global.imei);
-        requestBean.setImsi(Global.imsi1);
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String pda_time = simpleDateFormat.format(date);
-        requestBean.setPdaTime(pda_time);
-
+        assembleBasicRequest(requestBean);
         requestBean.setSex(sex);
         requestBean.setArea(area_code);
         requestBean.setPageNo(100);
@@ -98,6 +93,7 @@ public class Ac_name_list extends Ac_base implements OnRequestCallback {
     @Override
     public <T> void onRequestFinish(String reqId, String reqName, T bean) {
         NameListResponseBean responseBean = (NameListResponseBean) bean;
+        loading_layout.setVisibility(View.GONE);
         if (responseBean != null) {
             if (responseBean.getCode().equals("0")) {
                 List<TSummitPersion> list = responseBean.gettSummitPersions();

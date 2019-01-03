@@ -19,9 +19,16 @@ import android.widget.TextView;
 
 import com.sunland.securitycheck.MyApplication;
 import com.sunland.securitycheck.R;
-import com.sunland.securitycheck.WindowInfoUtils;
+import com.sunland.securitycheck.V_config;
+import com.sunland.securitycheck.bean.BaseRequestBean;
+import com.sunland.securitycheck.utils.DialogUtils;
+import com.sunland.securitycheck.utils.WindowInfoUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.ButterKnife;
+import cn.com.cybertech.pdk.OperationLog;
 
 
 public class Ac_base extends AppCompatActivity {
@@ -32,6 +39,8 @@ public class Ac_base extends AppCompatActivity {
     public FrameLayout container;
     public KeyboardView keyboard;
     public MyApplication mApplication;
+    public DialogUtils dialogUtils;
+    ;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +48,7 @@ public class Ac_base extends AppCompatActivity {
         setContentView(R.layout.ac_base);
         mApplication = (MyApplication) getApplication();
         toolbar = findViewById(R.id.toolbar);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP && setImmersive()) {
             Window window = getWindow();
             window.setStatusBarColor(Color.TRANSPARENT);
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
@@ -61,7 +70,12 @@ public class Ac_base extends AppCompatActivity {
                 finish();
             }
         });
+        dialogUtils = DialogUtils.getInstance();
         setSupportActionBar(toolbar);
+    }
+
+    public boolean setImmersive() {
+        return true;
     }
 
     public void setContentLayout(int layout) {
@@ -80,6 +94,43 @@ public class Ac_base extends AppCompatActivity {
             iv_nav.setVisibility(View.GONE);
     }
 
+    public void saveLog(int operateType, int operationResult, String operateCondition) {
+        try {
+            OperationLog.saveLog(this
+                    , "95337103EF738979AE46420631D4A62D"
+                    , getApplication().getPackageName()
+                    , operateType
+                    , OperationLog.OperationResult.CODE_SUCCESS
+                    , 1
+                    , operateCondition);
+        } catch (Exception e) {
+            //未适配Fileprovider
+            e.printStackTrace();
+        }
+    }
+
+    public String appendString(String... strings) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < strings.length; i++) {
+            sb.append(strings[i]);
+            if (i != strings.length - 1) {
+                sb.append("@");
+            }
+        }
+        return sb.toString();
+    }
+
+    public void assembleBasicRequest(BaseRequestBean requestBean) {
+        requestBean.setYhdm(V_config.YHDM);
+        requestBean.setImei(V_config.imei);
+        requestBean.setImsi(V_config.imsi1);
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String pda_time = simpleDateFormat.format(date);
+        requestBean.setPdaTime(pda_time);
+        requestBean.setGpsX(V_config.gpsX);
+        requestBean.setGpsY(V_config.gpsY);
+    }
 
     public void hop2Activity(Class<? extends Ac_base> clazz) {
         Intent intent = new Intent(this, clazz);

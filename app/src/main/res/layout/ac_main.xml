@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <com.sunland.securitycheck.BannerIndicator
+    <com.sunland.securitycheck.customView.BannerIndicator
         android:layout_gravity="center_horizontal"
         android:id="@+id/page_indicator"
         android:layout_marginTop="5dp"

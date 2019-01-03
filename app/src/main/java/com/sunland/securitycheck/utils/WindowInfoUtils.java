@@ -1,4 +1,4 @@
-package com.sunland.securitycheck;
+package com.sunland.securitycheck.utils;
 
 import android.content.Context;
 import android.content.res.Resources;

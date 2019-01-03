@@ -9,6 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sunland.securitycheck.V_config;
+import com.sunland.securitycheck.bean.BaseRequestBean;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.ButterKnife;
 
 public abstract class Frg_base extends Fragment {
@@ -28,6 +34,18 @@ public abstract class Frg_base extends Fragment {
         ButterKnife.bind(this, view);
         init();
         return view;
+    }
+
+    public void assembleBasicRequest(BaseRequestBean requestBean) {
+        requestBean.setYhdm(V_config.YHDM);
+        requestBean.setImei(V_config.imei);
+        requestBean.setImsi(V_config.imsi1);
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String pda_time = simpleDateFormat.format(date);
+        requestBean.setPdaTime(pda_time);
+        requestBean.setGpsX(V_config.gpsX);
+        requestBean.setGpsY(V_config.gpsY);
     }
 
     public abstract int setFrgLayout();

@@ -1,4 +1,4 @@
-package com.sunland.securitycheck;
+package com.sunland.securitycheck.customView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,6 +26,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.sunland.securitycheck.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,6 +4,18 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="cybertech.pstore.permission.APP" />
+
+    <!--<uses-permission android:name="cybertech.pstore.permission.COMPONENT" />-->
+    <uses-permission android:name="cybertech.permission.READ_PSTORE" />
+    <uses-permission android:name="cybertech.permission.READ_PSTORE_USERINFO" />
+    <uses-permission android:name="cybertech.permission.READ_PSTORE_LINKINFO" />
+    <uses-permission android:name="cybertech.permission.READ_PSTORE_LOCATIONINFO" />
+    <uses-permission android:name="cybertech.permission.WRITE_PSTORE_OPERATIONLOG" />
+    <uses-permission android:name="cybertech.permission.READ_PSTORE_LAUNCHERGROUPS" />
+    <uses-permission android:name="cybertech.permission.READ_PSTORE_SERVER_SYNC_TIME" />
 
     <application
         android:name=".MyApplication"
@@ -23,11 +35,20 @@
             android:name="plateform"
             android:value="${PLATEFORM_VALUE}" />
 
-        <activity android:name=".activities.Ac_main">
+        <activity
+            android:name=".activities.Ac_splash"
+            android:theme="@style/AppTheme.splash">
             <intent-filter>
                 <action android:name="${PLATEFORM_VALUE}.intent.action.MAIN" />
                 <category android:name="${PLATEFORM_VALUE}.intent.category.${CATEGORY_VALUE}" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.Ac_login"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity android:name=".activities.Ac_main">
+
         </activity>
         <activity
             android:name=".activities.Ac_check"

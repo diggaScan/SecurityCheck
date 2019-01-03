@@ -23,4 +23,7 @@
     <color name="key_pressed_color">#dcdcdc</color>
     <color name="key_unpressed_color">#eef2f5</color>
     <color name="keyboard_bkg">#b3b3b3</color>
+    <!--dialog_utils-->
+    <color name="dialog_backgrounf">#a4313131</color>
+    <color name="progress_gray">#aea6a6</color>
 </resources>

@@ -6,21 +6,22 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.sunland.netmodule.Global;
 import com.sunland.netmodule.network.RequestManager;
 import com.sunland.securitycheck.DataModel;
 import com.sunland.securitycheck.R;
-import com.sunland.securitycheck.SpinButton;
 import com.sunland.securitycheck.activities.Ac_check;
 import com.sunland.securitycheck.bean.CheckRequestBean;
+import com.sunland.securitycheck.customView.SpinButton;
+import com.sunland.securitycheck.utils.UtilsString;
 import com.sunland.sunlandkeyboard.SunlandKeyBoard;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -39,9 +40,12 @@ public class Frg_IdInput extends Frg_base {
     public RelativeLayout relativeLayout;
     @BindView(R.id.scrollView)
     public ScrollView scrollView;
+    @BindView(R.id.loading_layout)
+    public FrameLayout loading_layout;
 
     private RequestManager mRequestManager;
     private String areaCode;
+    public String sfzh;
 
     @Override
     public int setFrgLayout() {
@@ -75,29 +79,24 @@ public class Frg_IdInput extends Frg_base {
         int id = view.getId();
         switch (id) {
             case R.id.id_input_enter:
+                if (UtilsString.checkId(et_id.getText().toString()).equals("")) {
+                    Toast.makeText(context, "请输入正确的身份证号", Toast.LENGTH_SHORT).show();
+                    break;
+                }
 //                ((Ac_check) context).hop2Activity(Ac_check_result.class);
                 mRequestManager.addRequest(Global.ip, Global.port, Global.postfix, "querySummitPerson", assembleRequestObj(), 15000);
-                mRequestManager.postRequest();
+                mRequestManager.postRequestWithoutDialog();
+                loading_layout.setVisibility(View.VISIBLE);
+                ((Ac_check)context).which=1;
 //                Frg_check_result_dialog dialog=new Frg_check_result_dialog();
 //                dialog.show(((Ac_check)context).getSupportFragmentManager(),"dialog");
                 break;
-
         }
-
     }
 
     private CheckRequestBean assembleRequestObj() {
         CheckRequestBean bean = new CheckRequestBean();
-
-        bean.setYhdm("test");
-        bean.setImei(Global.imei);
-        bean.setImsi(Global.imsi1);
-
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String pda_time = simpleDateFormat.format(date);
-        bean.setPdaTime(pda_time);
-
+        assembleBasicRequest(bean);
         String nation_code;
         int code = sb_nation.getSelectedItemPosition() + 1;
         if (code < 10) {
@@ -105,7 +104,6 @@ public class Frg_IdInput extends Frg_base {
         } else {
             nation_code = Integer.toString(code);
         }
-
         String id_class;
         int id = sb_identifier.getSelectedItemPosition() + 1;
         if (id < 10) {
@@ -113,10 +111,10 @@ public class Frg_IdInput extends Frg_base {
         } else {
             id_class = Integer.toString(id);
         }
-
+        sfzh = et_id.getText().toString().trim();
         bean.setNation(nation_code);
         bean.setZjlx(id_class);
-        bean.setZjhm(et_id.getText().toString().trim());
+        bean.setZjhm(sfzh);
         bean.setArea(areaCode);
         bean.setXm("");
 
