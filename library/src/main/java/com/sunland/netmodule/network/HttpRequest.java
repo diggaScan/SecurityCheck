@@ -214,7 +214,7 @@ public class HttpRequest {
         sb.append("</" + mReqName + ">\n");
         sb.append(ENVTAIL);
         try {
-            RequestBody body = RequestBody.create(MediaType.parse("application/x-www-form-urlencoded;charset=utf-8"), sb.toString());
+            RequestBody body = RequestBody.create(MediaType.parse("text/xml;charset=utf-8"), sb.toString());
             Request request = new Request.Builder()
 //                    .header("Accept", "text/xml")
 //                    .addHeader("Connection", "close")//默认为Keep-Alive
