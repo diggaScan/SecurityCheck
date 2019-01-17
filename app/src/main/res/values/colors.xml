@@ -26,4 +26,7 @@
     <!--dialog_utils-->
     <color name="dialog_backgrounf">#a4313131</color>
     <color name="progress_gray">#aea6a6</color>
+
+    <!--drag2Refresh-->
+    <color name="loadingcolor">#e8e8e8</color>
 </resources>

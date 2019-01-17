@@ -20,8 +20,8 @@ import com.sunland.netmodule.network.OnRequestCallback;
 import com.sunland.netmodule.network.RequestManager;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.V_config;
-import com.sunland.securitycheck.bean.CheckResponseBean;
-import com.sunland.securitycheck.bean.NameListRequestBean;
+import com.sunland.securitycheck.bean.i_check_person.CheckResponseBean;
+import com.sunland.securitycheck.bean.i_check_person_list.NameListRequestBean;
 import com.sunland.securitycheck.utils.UtilsString;
 
 import java.text.SimpleDateFormat;

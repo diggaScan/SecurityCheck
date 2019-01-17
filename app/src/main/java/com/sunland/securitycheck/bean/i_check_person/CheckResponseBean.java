@@ -1,10 +1,11 @@
-package com.sunland.securitycheck.bean;
+package com.sunland.securitycheck.bean.i_check_person;
 
 import com.sunland.netmodule.def.bean.result.ResultBase;
 
 public class CheckResponseBean extends ResultBase {
     String result;
     String resultCode;
+    String icon;
 
     public String getResult() {
         return result;
@@ -20,5 +21,13 @@ public class CheckResponseBean extends ResultBase {
 
     public void setResultCode(String resultCode) {
         this.resultCode = resultCode;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

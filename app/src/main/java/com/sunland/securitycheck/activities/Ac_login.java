@@ -13,6 +13,7 @@ import com.sunland.netmodule.network.RequestManager;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.V_config;
 import com.sunland.securitycheck.bean.BaseRequestBean;
+import com.sunland.securitycheck.bean.i_login_bean.Dljyxx;
 import com.sunland.securitycheck.bean.i_login_bean.LoginRequestBean;
 import com.sunland.securitycheck.bean.i_login_bean.LoginResBean;
 import com.sunland.securitycheck.utils.DialogUtils;
@@ -72,7 +73,7 @@ public class Ac_login extends Ac_base implements OnRequestCallback {
                 requestBean.setGpsX(V_config.gpsX);
                 requestBean.setGpsY(V_config.gpsY);
                 requestBean.setPassword(et_password.getText().toString());
-                requestBean.setDlmk(V_config.APP_NAME);
+                requestBean.setDlmk(V_config.DLMK);
                 requestBean.setSjpp(V_config.BRAND);
                 requestBean.setSjxx(V_config.MODEL);
                 requestBean.setZzxt(V_config.OS);
@@ -114,6 +115,14 @@ public class Ac_login extends Ac_base implements OnRequestCallback {
             Toast.makeText(this, "服务异常", Toast.LENGTH_SHORT).show();
             return;
         }
+        Dljyxx dljyxx = loginResBean.getDljyxx();
+        if (dljyxx == null) {
+            Toast.makeText(this, loginResBean.getMessage(), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        V_config.JYSFZH = dljyxx.getUsernumber();
+        V_config.JYXM = dljyxx.getJyname();
+        V_config.JYBMBH = dljyxx.getBmcode();
         //code 0 允许登录
         //code 1 登录失败
         if (loginResBean.getCode().equals("0")) {

@@ -197,7 +197,7 @@ public class RequestManager implements OnRequestCallback {
     /**
      * 取消队列中所有网络请求
      */
-    private synchronized void cancelAll() {
+    public synchronized void cancelAll() {
         for (HttpRequest request : mRequestList) {
             request.cancel();
         }

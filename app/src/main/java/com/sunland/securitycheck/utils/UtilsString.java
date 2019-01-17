@@ -194,4 +194,18 @@ public class UtilsString {
             return false;
         }
     }
+
+    public static boolean isAutoQueryVeh(String hpzl, String hphm) {
+        if (hpzl == null || hpzl.isEmpty()) {
+            return false;
+        }
+        if (hphm.length() == 7 &&
+                (hpzl.equals("01") || hpzl.equals("02") || hpzl.equals("06") || hpzl.equals("07") ||
+                        hpzl.equals("08") || hpzl.equals("09") || hpzl.equals("12") || hpzl.equals("13") ||
+                        hpzl.equals("15") || hpzl.equals("16") || hpzl.equals("17") || hpzl.equals("23") || hpzl.equals("24")
+                ) ||
+                hphm.length() == 8 && (hpzl.equals("03") || hpzl.equals("51") || hpzl.equals("52")))
+            return true;
+        return false;
+    }
 }

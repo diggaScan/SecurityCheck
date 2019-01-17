@@ -1,4 +1,6 @@
-package com.sunland.securitycheck.bean;
+package com.sunland.securitycheck.bean.i_check_person;
+
+import com.sunland.securitycheck.bean.BaseRequestBean;
 
 public class CheckRequestBean extends BaseRequestBean {
     private String nation;

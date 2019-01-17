@@ -3,6 +3,8 @@ package com.sunland.securitycheck.fragments;
 import android.content.ComponentName;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +18,7 @@ import com.sunland.netmodule.network.RequestManager;
 import com.sunland.securitycheck.DataModel;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.activities.Ac_check;
-import com.sunland.securitycheck.bean.CheckRequestBean;
+import com.sunland.securitycheck.bean.i_check_person.CheckRequestBean;
 import com.sunland.securitycheck.customView.SpinButton;
 import com.sunland.securitycheck.utils.UtilsString;
 import com.sunland.sunlandkeyboard.SunlandKeyBoard;
@@ -60,6 +62,27 @@ public class Frg_IdInput extends Frg_base {
         sunlandKeyBoard.bindTarget(((Ac_check) context).keyboard, et_id, SunlandKeyBoard.KeyboardMode.IDENTITY, componentName);
         mRequestManager = ((Ac_check) context).getRequestManager();
         areaCode = ((Ac_check) context).getArea_code();
+        et_id.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!UtilsString.checkId(s.toString()).equals("")) {
+                    mRequestManager.addRequest(Global.ip, Global.port, Global.postfix, "querySummitPerson", assembleRequestObj(), 15000);
+                    mRequestManager.postRequestWithoutDialog();
+                    loading_layout.setVisibility(View.VISIBLE);
+                    ((Ac_check) context).which = 1;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
@@ -72,6 +95,8 @@ public class Frg_IdInput extends Frg_base {
         sb_identifier.setDataSet(Arrays.asList(DataModel.CERTIFICATIONS));
         sb_identifier.setSelection(0);
         sb_identifier.setHeaderTitle("证件种类");
+
+
     }
 
     @OnClick(R.id.id_input_enter)
@@ -87,7 +112,7 @@ public class Frg_IdInput extends Frg_base {
                 mRequestManager.addRequest(Global.ip, Global.port, Global.postfix, "querySummitPerson", assembleRequestObj(), 15000);
                 mRequestManager.postRequestWithoutDialog();
                 loading_layout.setVisibility(View.VISIBLE);
-                ((Ac_check)context).which=1;
+                ((Ac_check) context).which = 1;
 //                Frg_check_result_dialog dialog=new Frg_check_result_dialog();
 //                dialog.show(((Ac_check)context).getSupportFragmentManager(),"dialog");
                 break;
@@ -117,7 +142,6 @@ public class Frg_IdInput extends Frg_base {
         bean.setZjhm(sfzh);
         bean.setArea(areaCode);
         bean.setXm("");
-
         return bean;
 
     }

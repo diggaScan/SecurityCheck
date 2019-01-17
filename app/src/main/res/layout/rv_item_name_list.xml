@@ -2,8 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/name_container"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/plateform_item_height"
+    android:layout_height="wrap_content"
     android:background="@drawable/item_click_bkg">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="80dp"
+        android:layout_height="100dp" />
 
     <View
         android:id="@+id/dividerLine"
@@ -15,42 +20,43 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/dividerLine"
         android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/icon"
         android:gravity="center_vertical"
         android:textColor="@color/black"
         android:textSize="17sp" />
 
-    <TextView
-        android:id="@+id/paper_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/dividerLine"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/name" />
 
     <TextView
         android:id="@+id/gj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dividerLine"
-        android:layout_marginLeft="10dp"
+        android:layout_below="@id/name"
+        android:layout_alignLeft="@id/name"
         android:layout_toRightOf="@id/yxq" />
+
+    <TextView
+        android:id="@+id/paper_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/name"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/name" />
 
     <TextView
         android:id="@+id/yxq_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dividerLine"
+        android:layout_below="@id/gj"
         android:layout_marginLeft="20dp"
-        android:text="有效日期: " />
+        android:layout_toRightOf="@id/icon"
+        android:text="证件有效期: " />
 
     <TextView
         android:id="@+id/yxq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dividerLine"
+        android:layout_alignBaseline="@id/yxq_description"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/yxq_description" />
 
@@ -66,5 +72,37 @@
         android:text="核查"
         android:textColor="@color/white"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/lxdh_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/yxq_description"
+        android:layout_alignLeft="@id/yxq_description"
+        android:text="联系电话:" />
+
+    <TextView
+        android:id="@+id/lxdh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/lxdh_str"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/lxdh_str" />
+
+    <TextView
+        android:id="@+id/rylx_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lxdh_str"
+        android:layout_alignLeft="@id/lxdh_str"
+        android:text="人员类型:" />
+
+    <TextView
+        android:id="@+id/rylx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/rylx_str"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/rylx_str" />
 
 </RelativeLayout>

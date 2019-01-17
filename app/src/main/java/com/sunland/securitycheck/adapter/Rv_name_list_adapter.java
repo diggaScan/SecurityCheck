@@ -8,12 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sunland.netmodule.Global;
+import com.sunland.securitycheck.GlideApp;
 import com.sunland.securitycheck.R;
-import com.sunland.securitycheck.bean.TSummitPersion;
+import com.sunland.securitycheck.V_config;
+import com.sunland.securitycheck.bean.i_check_person_list.TSummitPersion;
 import com.sunland.securitycheck.utils.UtilsString;
 
 import java.util.List;
@@ -47,12 +51,24 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
         myViewHolder.tv_num.setText(sfzh);
         myViewHolder.tv_yxq.setText(info.getYxq());
         myViewHolder.tv_gj.setText(info.getNationStr());
+        myViewHolder.tv_lxdh.setText(info.getLxrdh());
+        myViewHolder.tv_rylx.setText(info.getPeopleTypeStr());
+        GlideApp.with(context).asBitmap()
+                .load("http://" + Global.ip + ":" + Global.port + info.getIcon())
+                .placeholder(R.drawable.pass_profile)
+                .error(R.drawable.pass_profile)
+                .into(myViewHolder.iv_icon);
 
         myViewHolder.tv_hc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("id", sfzh);
+                bundle.putString("yhdm", V_config.YHDM);
+                bundle.putString("jysfzh", V_config.JYSFZH);
+                bundle.putString("jyxm", V_config.JYXM);
+                bundle.putString("jybmbh", V_config.JYBMBH);
+                bundle.putString("lbr", "02");
                 Intent intent = new Intent();
                 intent.setAction("com.sunland.intent.action.QUERY_ID");
                 intent.putExtra("bundle", bundle);
@@ -81,6 +97,9 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
         TextView tv_yxq;
         TextView tv_gj;
         TextView tv_hc;
+        ImageView iv_icon;
+        TextView tv_lxdh;
+        TextView tv_rylx;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,6 +109,10 @@ public class Rv_name_list_adapter extends RecyclerView.Adapter<Rv_name_list_adap
             tv_gj = itemView.findViewById(R.id.gj);
             rl_container = itemView.findViewById(R.id.name_container);
             tv_hc = itemView.findViewById(R.id.hc);
+            iv_icon = itemView.findViewById(R.id.icon);
+            tv_rylx = itemView.findViewById(R.id.rylx);
+            tv_lxdh = itemView.findViewById(R.id.lxdh);
+
         }
     }
 

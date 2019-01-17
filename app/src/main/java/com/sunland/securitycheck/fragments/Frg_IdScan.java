@@ -13,7 +13,7 @@ import com.sunland.netmodule.Global;
 import com.sunland.netmodule.network.RequestManager;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.activities.Ac_check;
-import com.sunland.securitycheck.bean.CheckRequestBean;
+import com.sunland.securitycheck.bean.i_check_person.CheckRequestBean;
 
 import butterknife.BindView;
 import butterknife.OnClick;

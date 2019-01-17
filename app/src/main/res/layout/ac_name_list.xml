@@ -5,18 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".activities.Ac_name_list">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_nameList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <FrameLayout
-        android:visibility="gone"
-        android:id="@+id/loading_layout"
+    <com.sunland.securitycheck.customView.DragToRefreshView.DragToRefreshView
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.ybq.android.spinkit.SpinKitView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_nameList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.sunland.securitycheck.customView.DragToRefreshView.DragToRefreshView>
+
+    <FrameLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/loading_icon"
             style="@style/SpinKitView.Large.ThreeBounce"
             android:layout_width="50dp"

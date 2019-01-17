@@ -17,7 +17,7 @@ import com.sunland.securitycheck.DataModel;
 import com.sunland.securitycheck.NfcReceiver;
 import com.sunland.securitycheck.R;
 import com.sunland.securitycheck.adapter.VpAdapter_check;
-import com.sunland.securitycheck.bean.CheckResponseBean;
+import com.sunland.securitycheck.bean.i_check_person.CheckResponseBean;
 import com.sunland.securitycheck.customView.BannerIndicator;
 import com.sunland.securitycheck.fragments.Frg_IdInput;
 import com.sunland.securitycheck.fragments.Frg_IdScan;
@@ -152,19 +152,17 @@ public class Ac_check extends Ac_base implements NfcReceiver.OnGetNfcDataListene
                 if (which == 0) {
                     ((Frg_IdScan) frg_idScan).loading_layout.setVisibility(View.GONE);
                     sfzh = ((Frg_IdScan) frg_idScan).num;
-
                 } else {
                     ((Frg_IdInput) frg_idInput).loading_layout.setVisibility(View.GONE);
                     sfzh = ((Frg_IdInput) frg_idInput).sfzh;
                 }
-
-
                 CheckResponseBean responseBean = (CheckResponseBean) bean;
                 if (responseBean != null) {
                     if (responseBean.getCode().equals("0")) {
                         Bundle bundle = new Bundle();
                         bundle.putString("result", responseBean.getResult());
                         bundle.putString("resultCode", responseBean.getResultCode());
+                        bundle.putString("icon", responseBean.getIcon());
                         bundle.putString("sfzh", sfzh);
                         hop2Activity(Ac_check_result.class, bundle);
                     } else {

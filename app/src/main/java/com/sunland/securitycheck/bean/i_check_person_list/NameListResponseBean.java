@@ -1,4 +1,4 @@
-package com.sunland.securitycheck.bean;
+package com.sunland.securitycheck.bean.i_check_person_list;
 
 import com.sunland.netmodule.def.bean.result.ResultBase;
 

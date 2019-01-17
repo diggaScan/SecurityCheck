@@ -45,6 +45,9 @@ public class Ac_splash extends CheckSelfPermissionActivity implements OnRequestC
             User user = cn.com.cybertech.pdk.UserInfo.getUser(this);
             try {
                 V_config.YHDM = user.getAccount();
+                V_config.JYSFZH = user.getIdCard();
+                V_config.JYXM = user.getName();
+                V_config.JYBMBH = user.getDeptId();
             } catch (NullPointerException e) {
                 Toast.makeText(this, "无法获取警号", Toast.LENGTH_LONG).show();
                 finish();
@@ -77,7 +80,7 @@ public class Ac_splash extends CheckSelfPermissionActivity implements OnRequestC
         loginBean.setPdaTime(pda_time);
         loginBean.setGpsX(V_config.gpsX);
         loginBean.setGpsY(V_config.gpsY);
-        loginBean.setDlmk(V_config.APP_NAME);
+        loginBean.setDlmk(V_config.DLMK);
         loginBean.setSjpp(V_config.BRAND);
         loginBean.setSjxx(V_config.MODEL);
         loginBean.setZzxt(V_config.OS);

@@ -1,6 +1,8 @@
-package com.sunland.securitycheck.bean;
+package com.sunland.securitycheck.bean.i_check_person_list;
 
 public class TSummitPersion {
+    private String peopleTypeStr;
+
     private String csrq;
     private String flag;
     private String gzdw;
@@ -22,6 +24,15 @@ public class TSummitPersion {
     private String sjjzd;
     private String tbdw;
     private String yxq;
+    private String icon;
+
+    public String getPeopleTypeStr() {
+        return peopleTypeStr;
+    }
+
+    public void setPeopleTypeStr(String peopleTypeStr) {
+        this.peopleTypeStr = peopleTypeStr;
+    }
 
     public String getPaperTypeStr() {
         return paperTypeStr;
@@ -189,5 +200,13 @@ public class TSummitPersion {
 
     public void setYxq(String yxq) {
         this.yxq = yxq;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

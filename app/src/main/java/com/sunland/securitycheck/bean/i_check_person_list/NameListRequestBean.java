@@ -1,4 +1,6 @@
-package com.sunland.securitycheck.bean;
+package com.sunland.securitycheck.bean.i_check_person_list;
+
+import com.sunland.securitycheck.bean.BaseRequestBean;
 
 public class NameListRequestBean extends BaseRequestBean {
     private int pageNo;
