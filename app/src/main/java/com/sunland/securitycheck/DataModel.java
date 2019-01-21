@@ -29,12 +29,12 @@ public class DataModel {
     };
 
 
-    public static final String ACTION_NFC_READ_IDCARD_SUCCESS  =
+    public static final String ACTION_NFC_READ_IDCARD_SUCCESS =
             "cybertech.pstore.intent.action.NFC_READ_IDCARD_SUCCESS";
 
-    public static final String ACTION_NFC_READ_IDCARD_FAILURE  =
+    public static final String ACTION_NFC_READ_IDCARD_FAILURE =
             "cybertech.pstore.intent.action.NFC_READ_IDCARD_FAILURE";
 
-    public static final String[] AREA_CODE={"01","02","03","04","05","06","07","08","09","10"};
+    public static final String[] AREA_CODE = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10"};
 
 }

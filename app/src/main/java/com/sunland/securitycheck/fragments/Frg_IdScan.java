@@ -46,6 +46,9 @@ public class Frg_IdScan extends Frg_base {
     private String name;
     private String gender;
     private RequestManager mRequestManager;
+    private String year;
+    private String month;
+    private String day;
 
     @Override
     public int setFrgLayout() {
@@ -106,6 +109,8 @@ public class Frg_IdScan extends Frg_base {
         String nation = intent.getStringExtra("nation");
         String address = intent.getStringExtra("address");
         num = intent.getStringExtra("identity");
+        String birthday = intent.getStringExtra("birthday");
+
         tv_name.setBackgroundColor(Color.argb(0, 0, 0, 0));
         tv_gender.setBackgroundColor(Color.argb(0, 0, 0, 0));
         tv_nation.setBackgroundColor(Color.argb(0, 0, 0, 0));
@@ -120,6 +125,17 @@ public class Frg_IdScan extends Frg_base {
         tv_nation.setText(nation);
         tv_address.setText(address);
         tv_num.setText(num);
+
+        try {
+            year = birthday.substring(0, 4);
+            month = birthday.substring(4, 6);
+            day = birthday.substring(6, 8);
+            tv_year.setText(year);
+            tv_month.setText(month);
+            tv_day.setText(day);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
